@@ -27,8 +27,8 @@ namespace SampleQueries
         public void Linq1()
         {
             int x = 6520;
-            List<Customer> customers = dataSource.Customers.Select(c => c)
-                .Where(cust => cust.Orders.Sum(o => o.Total) > x).ToList();
+            List<Customer> customers = dataSource.Customers
+                .Where(cust => cust.Orders.Sum(o => o.Total) > x);
             foreach (var customer in customers)
             {
                 Console.WriteLine($"{customer.CompanyName} {customer.Orders.Sum(t => t.Total)}");
